@@ -12,3 +12,17 @@
 
         return $bdd;
     }
+
+    function getBillet($idBillet){
+        $bdd = getBdd();
+        $billet = $bdd->prepare('SELECT BIL_ID as id, BIL_DATE as date, BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET WHERE BIL_ID = ?');
+        $billet->execute([$idBillet]);
+        return $billet->fetch();
+        }
+
+    function getCommentaires($idBillet){
+        $bdd = getBdd();
+        $commentaires = $bdd->prepare('SELECT COM_ID as id, COM_DATE as date,COM_AUTEUR as auteur, COM_CONTENU as contenu from T_COMMENTAIRE WHERE BIL_ID=?');
+        $commentaires->execute([$idBillet]);
+        return $commentaires;
+        }
