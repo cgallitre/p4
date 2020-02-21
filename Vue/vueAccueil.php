@@ -2,7 +2,6 @@
 
 <?php ob_start(); ?>
 <?php foreach ($billets as $billet) : ?>
-
     <article>
         <header>
             <a href="index.php?action=billet&id=<?= $billet['id'] ?>">
@@ -18,4 +17,4 @@
 
 <?php $contenu = ob_get_clean(); ?>
 
-<?php require 'gabarit.php'; ?>
+<?php require 'Vue/gabarit.php'; ?>

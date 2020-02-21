@@ -5,4 +5,4 @@ ob_start();
 echo '<p>Une erreur est survenue : ' . $msgErreur;
 $contenu = ob_get_clean();
 
-require 'gabarit.php';
+require 'Vue/gabarit.php';
