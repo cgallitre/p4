@@ -1,13 +1,28 @@
 <?php
 
-    require 'Modele.php';
+require 'Controleur.php';
 
     try {
-        $billets = getBillets();
-        require 'vueAccueil.php';           
+        if (isset($_GET['action'])){
+            if ($_GET['action'] == 'billet'){
+                if (isset($_GET['id'])){
+                    $billet = intval($_GET['id']);
+                    if ($billet != 0){
+                        billet($billet);
+                    } else {
+                        throw new Exception("Identifiant de billet non valide");
+                    }
+                } else {
+                    throw new Exception("Aucun identifiant de billet fourni.");
+                }
+            } else {
+                throw new Exception("Action non valide");
+            }
+        } else {
+            accueil();
+        }
     }
-    catch (Exception $e) 
+    catch (Exception $e)
     {
-        $msgErreur = $e->getMessage();
-        require 'vueErreur.php';
+       erreur($e->getMessage()  . '<br>Fichier : ' . $e->getFile() . '<br>Ligne : ' . $e->getLine());
     }
