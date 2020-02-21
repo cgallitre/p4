@@ -1,8 +1,5 @@
 <?php
 
-$titre = 'Mon blog';
-ob_start();
+$this->titre = 'Mon blog';
 echo '<p>Une erreur est survenue : ' . $msgErreur;
-$contenu = ob_get_clean();
 
-require 'Vue/gabarit.php';
