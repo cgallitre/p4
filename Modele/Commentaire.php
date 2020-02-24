@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Modele/Modele.php';
+require_once 'Framework/Modele.php';
 
 class Commentaire extends Modele
 {

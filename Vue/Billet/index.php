@@ -1,11 +1,11 @@
-<?php $this->titre = 'Mon blog - ' . $billet['titre']; ?>
+<?php $this->titre = 'Mon blog - ' . $this->nettoyer($billet['titre']); ?>
 
 <article>
     <header>
-        <h1 class="titreBillet"><?= $billet['titre'] ?></h1>
-        <time><?= $billet['date'] ?></time>
+        <h1 class="titreBillet"><?= $this->nettoyer($billet['titre']) ?></h1>
+        <time><?= $this->nettoyer($billet['date']) ?></time>
     </header>
-    <p><?= $billet['contenu'] ?></p>
+    <p><?= $this->nettoyer($billet['contenu']) ?></p>
 </article>
 <hr>
 <header>
@@ -16,7 +16,7 @@
     <p><?= $commentaire['contenu'] ?></p>
 <?php endforeach ?>
 
-<form action="index.php?action=commenter" method="post">
+<form action="billet/commenter" method="post">
     <input type="text" id="auteur" name="auteur" placeholder="Votre pseudo" required><br>
     <textarea name="contenu" id="contenu" cols="30" rows="5" placeholder="Votre commentaire" required></textarea><br>
     <input type="hidden" name="id" value="<?= $billet['id'] ?>">

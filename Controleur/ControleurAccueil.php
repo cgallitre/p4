@@ -1,9 +1,9 @@
 <?php
 
+require_once 'Framework/Controleur.php';
 require_once 'Modele/Billet.php';
-require_once 'Vue/Vue.php';
 
-class ControleurAccueil 
+class ControleurAccueil extends Controleur
 {
     private $billet;
 
@@ -12,10 +12,9 @@ class ControleurAccueil
         $this->billet = new Billet();
     }
 
-    public function accueil(){
+    public function index(){
         $billets = $this->billet->getBillets();
-        $vue = new Vue('Accueil');
-        $vue->generer(['billets' => $billets]);
+        $this->genererVue(['billets' => $billets]);
     }
 
 }
