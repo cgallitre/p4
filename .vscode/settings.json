@@ -1,6 +1,18 @@
 {
     "cSpell.words": [
         "get",
-        "parametre"
+        "parametre",
+        "parametres",
+        "resultat"
+    ],
+    "cSpell.ignoreWords": [
+        "beekast",
+        "cpam",
+        "excel",
+        "executer",
+        "finder",
+        "requete",
+        "spotlight",
+        "torvalds"
     ]
 }
