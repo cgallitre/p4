@@ -15,3 +15,10 @@
     <p><?= $commentaire['auteur'] ?> dit : </p>
     <p><?= $commentaire['contenu'] ?></p>
 <?php endforeach ?>
+
+<form action="index.php?action=commenter" method="post">
+    <input type="text" id="auteur" name="auteur" placeholder="Votre pseudo" required><br>
+    <textarea name="contenu" id="contenu" cols="30" rows="5" placeholder="Votre commentaire" required></textarea><br>
+    <input type="hidden" name="id" value="<?= $billet['id'] ?>">
+    <input type="submit" value="Commenter">
+</form>

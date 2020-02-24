@@ -24,4 +24,11 @@ class ControleurBillet
             'commentaires' =>$commentaires
         ]);
     }
+
+    public function commenter($auteur, $contenu, $idBillet){
+        // sauvegarde du commentaire
+        $this->commentaire->ajouterCommentaire($auteur, $contenu, $idBillet);
+        // actualisation de l'affichage
+        $this->billet($idBillet);
+    }
 }
