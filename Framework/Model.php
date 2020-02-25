@@ -1,16 +1,16 @@
 <?php
 
-require_once 'Configuration.php';
+require_once 'Setup.php';
 
-abstract class Modele {
+abstract class Model {
 
     private static $db;
 
     private static function getDb(){
         if (self::$db === null) {
-            $dsn = Configuration::get('dsn');
-            $login = Configuration::get('login');
-            $pass= Configuration::get('pass');
+            $dsn = Setup::get('dsn');
+            $login = Setup::get('login');
+            $pass= Setup::get('pass');
             self::$db = new PDO ($dsn, $login, $pass);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }

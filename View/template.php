@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="<?= $racineWeb ?>" >
+    <base href="<?= $rootWeb ?>" >
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="Contenu/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/css/bootstrap.min.css">
     <!-- CSS pour le tuto A supprimer -->
-    <link rel="stylesheet" href="Contenu/css/style.css">
-    <title><?= $titre ?></title>
+    <link rel="stylesheet" href="Content/css/style.css">
+    <title><?= $title ?></title>
 </head>
 
 <body>
     <div class="container">
         <header class="row">
             <div class="col" id="head">
-                <a href="index.php"><h1><?= $titre ?></h1></a>
-                <img src="Contenu/img/entete.jpg" class="img-fluid" alt="Illustration du blog de Jean">
+                <a href="index.php"><h1><?= $title ?></h1></a>
+                <img src="Content/img/entete.jpg" class="img-fluid" alt="Illustration du blog de Jean">
             </div>
         </header>
         <section class="row">
             <div class="col-md-8" id="main">
-                <?= $contenu ?>
+                <?= $content ?>
 
     <!--             <article class="jumbotron">
                     <h3 class="display-4">Article 1</h3>

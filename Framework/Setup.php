@@ -1,6 +1,6 @@
 <?php
 
-class Configuration
+class Setup
 {
     private static $parameters;
 
@@ -17,9 +17,9 @@ class Configuration
     // Return array of parameters 
     private static function getParameters() {
         if (self::$parameters == null) {
-            $pathFile = "Config/prod.ini";
+            $pathFile = "Setup/prod.ini";
             if (!file_exists($pathFile)) {
-                $pathFile = "Config/dev.ini";
+                $pathFile = "Setup/dev.ini";
             }
             if (!file_exists($pathFile)) {
                 throw new Exception("Aucun fichier de configuration trouvé");
