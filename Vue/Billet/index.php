@@ -1,24 +1,26 @@
-<?php $this->titre = 'Mon blog - ' . $this->nettoyer($billet['titre']); ?>
+<?php $this->titre = 'Le blog de Jean Forteroche - ' . $this->nettoyer($billet['titre']); ?>
 
-<article>
+<article class="jumbotron">
     <header>
-        <h1 class="titreBillet"><?= $this->nettoyer($billet['titre']) ?></h1>
+        <h3 class="display-4"><?= $this->nettoyer($billet['titre']) ?></h3>
         <time><?= $this->nettoyer($billet['date']) ?></time>
     </header>
     <p><?= $this->nettoyer($billet['contenu']) ?></p>
 </article>
-<hr>
-<header>
-    <h1 id="titreReponses">Réponses à <?= $this->nettoyer($billet['titre']) ?></h1>
-</header>
-<?php foreach ($commentaires as $commentaire) : ?>
-    <p><?= $this->nettoyer($commentaire['auteur']) ?> dit : </p>
-    <p><?= $this->nettoyer($commentaire['contenu']) ?></p>
-<?php endforeach ?>
+
+    <header>
+        <h3 class="display-5">Réponses à <?= $this->nettoyer($billet['titre']) ?></h3>
+    </header>
+    <?php foreach ($commentaires as $commentaire) : ?>
+        <p><?= $this->nettoyer($commentaire['auteur']) ?> dit : </p>
+        <p><?= $this->nettoyer($commentaire['contenu']) ?></p>
+        <hr class="my-4">
+    <?php endforeach ?>
+
 
 <form action="billet/commenter" method="post">
     <input type="text" id="auteur" name="auteur" placeholder="Votre pseudo" required><br>
     <textarea name="contenu" id="contenu" cols="30" rows="5" placeholder="Votre commentaire" required></textarea><br>
     <input type="hidden" name="id" value="<?= $this->nettoyer($billet['id']) ?>">
-    <input type="submit" value="Commenter">
+    <input class="btn btn-dark" type="submit" value="Commenter">
 </form>

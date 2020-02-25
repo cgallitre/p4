@@ -1,0 +1,47 @@
+body {
+    padding-top: 10px;
+}
+
+p {
+    text-align: justify;
+}
+
+h3 {
+    text-align: left;
+}
+
+nav{
+    margin-top:15px;
+}
+
+section{
+    padding-top:30px;
+}
+
+#aside{
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+    
+}
+
+#main{
+  
+}
+
+
+#head{
+    /* margin : 0 0 0 0; */
+   
+}
+
+#foot{
+        margin-bottom: 2rem;
+        margin-left: 1 rem;
+        background-color: #e9ecef;
+        border-radius: .3rem;
+        padding: 4rem 2rem;
+}
+
+.bg-grey{
+    background-color: #e9ecef;
+}
