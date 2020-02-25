@@ -28,7 +28,7 @@ class Routeur
         
         if ($requete->existeParametre('controleur')){
             $controleur = $requete->getParametre('controleur');
-            // Permière lettre en majuscule
+            // Première lettre en majuscule
             $controleur = ucfirst(strtolower($controleur));
         }
         // création du nom du fichier du controleur
