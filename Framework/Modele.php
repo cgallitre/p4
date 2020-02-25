@@ -4,28 +4,28 @@ require_once 'Configuration.php';
 
 abstract class Modele {
 
-    private static $bdd;
+    private static $db;
 
-    private static function getBdd(){
-        if (self::$bdd === null) {
+    private static function getDb(){
+        if (self::$db === null) {
             $dsn = Configuration::get('dsn');
             $login = Configuration::get('login');
-            $mdp= Configuration::get('mdp');
-            self::$bdd = new PDO ($dsn, $login, $mdp);
-            self::$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pass= Configuration::get('pass');
+            self::$db = new PDO ($dsn, $login, $pass);
+            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
-        return self::$bdd;
+        return self::$db;
     }
 
 
-    protected function executerRequete($sql, $params = null){
+    protected function executeRequest($sql, $params = null){
         if ($params == null){
-            $resultat = $this->getBdd()->query($sql);
+            $result = $this->getdb()->query($sql);
         } else {
-            $resultat = $this->getBdd()->Prepare($sql);
-            $resultat->execute($params);
+            $result = $this->getdb()->Prepare($sql);
+            $result->execute($params);
         }
 
-        return $resultat;
+        return $result;
     }
 }
