@@ -6,15 +6,14 @@ class Commentaire extends Modele
 {
     public function getCommentaires($idBillet)
     {
-        $sql = 'SELECT COM_ID as id, COM_DATE as date,COM_AUTEUR as auteur, COM_CONTENU as contenu from T_COMMENTAIRE WHERE BIL_ID=?';
+        $sql = 'SELECT id as id, date as date,author as auteur, content as contenu from comments WHERE postId=?';
         $commentaires = $this->executeRequest($sql, [$idBillet]);
         return $commentaires;
     }
 
     public function ajouterCommentaire($auteur, $contenu, $idBillet){
-        $sql = 'INSERT INTO T_COMMENTAIRE(COM_DATE, COM_AUTEUR, COM_CONTENU, BIL_ID) values (?, ?, ?, ?)';
-        // $date=date(DATE_W3C);
-        $date = new datetime;
+        $sql = 'INSERT INTO comments (date, author, content, postId) values (?, ?, ?, ?)';
+        $date=date(DATE_W3C);
         $this->executeRequest($sql, [
             $date,
             $auteur,

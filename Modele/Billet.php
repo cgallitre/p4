@@ -6,14 +6,14 @@ class Billet extends Modele
 {
     public function getBillets()
     {
-        $sql = 'SELECT BIL_ID as id, BIL_DATE as date, BIL_TITRE as titre, BIL_CONTENU as contenu FROM T_BILLET ORDER BY BIL_ID DESC';
+        $sql = 'SELECT id as id, date as date, title as titre, content as contenu FROM posts ORDER BY id DESC';
         $billets = $this->executeRequest($sql);
         return $billets;
     }
 
     public function getBillet($idBillet)
     {
-        $sql = 'SELECT BIL_ID as id, BIL_DATE as date, BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET WHERE BIL_ID = ?';
+        $sql = 'SELECT id as id, date as date, title as titre, content as contenu FROM posts WHERE id = ?';
         $billet = $this->executeRequest($sql, [$idBillet]);
         if ($billet->rowCount() == 1){
             return $billet->fetch();

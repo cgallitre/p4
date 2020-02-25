@@ -12,7 +12,7 @@
         <h3 class="display-5">Réponses à <?= $this->nettoyer($billet['titre']) ?></h3>
     </header>
     <?php foreach ($commentaires as $commentaire) : ?>
-        <p><?= $this->nettoyer($commentaire['auteur']) ?> dit : </p>
+        <p>Le <?= $commentaire['date'] ?> <?= $this->nettoyer($commentaire['auteur']) ?> dit : </p>
         <p><?= $this->nettoyer($commentaire['contenu']) ?></p>
         <hr class="my-4">
     <?php endforeach ?>
