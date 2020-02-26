@@ -19,8 +19,8 @@
 
 
 <form action="post/comment" method="post">
-    <input type="text" id="author" name="author" placeholder="Votre pseudo" required><br>
-    <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire" required></textarea><br>
+    <input type="text" id="author" name="author" placeholder="Votre pseudo" class="form-control" required><br>
+    <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire" class="form-control" required></textarea><br>
     <input type="hidden" name="id" value="<?= $this->clean($post['id']) ?>">
     <input class="btn btn-dark" type="submit" value="Commenter">
 </form>

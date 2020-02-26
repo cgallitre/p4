@@ -21,4 +21,5 @@ class Post extends Model
             throw new Exception("Aucun post ne correspondant à l'identifiant $idPost");
         }
     }
+
 }

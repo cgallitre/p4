@@ -23,16 +23,6 @@
         <section class="row">
             <div class="col-md-8" id="main">
                 <?= $content ?>
-
-    <!--             <article class="jumbotron">
-                    <h3 class="display-4">Article 1</h3>
-                    <hr class="my-4">
-                    <p>Lorem</p>
-                    <p class="lead">
-                        <a class="btn btn-dark" href="#" role="button">Lire la suite...</a>
-                    </p>
-                </article>
-                 -->
                 <nav aria-label="Navigation dans les articles">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled"><a class="page-link" href="#">Précédent</a></li>
