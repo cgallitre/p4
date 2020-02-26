@@ -20,11 +20,13 @@ class ControllerPost extends Controller
         $idPost = $this->request->getParameter("id");
 
         $post=$this->post->getPost($idPost);
+        $titlesPosts = $this->post->getTitlesPosts();
         $comments=$this->comment->getComments($idPost);
         
         $this->generateView([
             'post' => $post,
-            'comments' =>$comments
+            'comments' =>$comments,
+            'titlesPosts' => $titlesPosts
         ]);
     }
 

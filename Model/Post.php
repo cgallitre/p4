@@ -21,4 +21,12 @@ class Post extends Model
             throw new Exception("Aucun post ne correspondant à l'identifiant $idPost");
         }
     }
+
+    public function getTitlesPosts()
+    {
+        $sql = 'SELECT id, title FROM posts ORDER BY title';
+        $titlesPosts = $this->executeRequest($sql);
+        return $titlesPosts;
+        var_dump($titlesPosts);
+    }
 }

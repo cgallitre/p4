@@ -14,7 +14,12 @@ class ControllerHome extends Controller
 
     public function index(){
         $posts = $this->post->getPosts();
-        $this->generateView(['posts' => $posts]);
+        $titlesPosts = $this->post->getTitlesPosts();
+        $this->generateView([
+            'posts' => $posts,
+            'titlesPosts' => $titlesPosts
+            ]);
+        var_dump($posts, $titlesPosts);
     }
 
 }
