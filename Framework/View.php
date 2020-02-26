@@ -23,7 +23,7 @@ Class View
         $View = $this->generateFile('View/template.php',[
             'title' => $this->title,
             'content' => $content,
-            'rootWeb' => $rootWeb
+            'rootWeb' => $rootWeb,
         ]);
         echo $View;
     }

@@ -22,4 +22,11 @@ class Post extends Model
         }
     }
 
+    public function getTitlesPosts()
+    {
+        $sql = 'SELECT id, title FROM posts ORDER BY title';
+        $titlesPosts = $this->executeRequest($sql);
+        return $titlesPosts;
+        var_dump($titlesPosts);
+    }
 }
