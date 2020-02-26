@@ -9,17 +9,27 @@
         <p><?= $this->clean($post['content']) ?></p>
     </article>
 
-    <header>
-        <h3 class="display-5">Réponses à <?= $this->clean($post['title']) ?></h3>
-    </header>
-    <?php foreach ($comments as $comment) : ?>
-    <hr class="my-4">
-    <p>Le <?= $comment['date'] ?> <?= $this->clean($comment['author']) ?> dit : </p>
-    <p><?= $this->clean($comment['content']) ?></p>
 
-    <?php endforeach ?>
+    <?php // Calcul du nombre de commentaires
+
+        $comments = $comments->fetchAll();
+        $numComments = count($comments);
+    ?>
+    <!-- Si aucun commentaire, aucun affichage -->
+    <?php if ($numComments > 0) : ?> 
+        <header>
+            <h3 class="display-5">Réponses à <?= $this->clean($post['title']) ?></h3>
+        </header>
+        <?php foreach ($comments as $comment) : ?>
+            <hr class="my-4">
+            <p>Le <?= $comment['date'] ?> <?= $this->clean($comment['author']) ?> dit : </p>
+            <p><?= $this->clean($comment['content']) ?></p>
+        <?php endforeach ?>
+    <?php endif ?>
+
     <br>
     <div class="form-group">
+        <h4>Ajouter un commentaire</h4>
         <form action="post/comment" method="post">
             <input type="text" id="author" name="author" placeholder="Votre pseudo" class="form-control" required><br>
             <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire"
@@ -37,7 +47,9 @@
             <h2>Sommaire</h2>
             <ul class="list-unstyled">
                 <?php foreach ($titlesPosts as $titlePost) : ?>
-                <li><?= $titlePost['title'] ?></li>
+                    <a href="/post/index/<?= $this->clean($titlePost['id']) ?>">
+                        <li><?= $this->clean($titlePost['title']) ?></li>
+                    </a>
                 <?php endforeach ?>
 
             </ul>

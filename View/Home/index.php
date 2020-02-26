@@ -36,9 +36,10 @@
             <h2>Sommaire</h2>
             <ul class="list-unstyled">
                 <?php foreach ($titlesPosts as $titlePost) : ?>
-                <li><?= $titlePost['title'] ?></li>
+                   <a href="/post/index/<?= $this->clean($titlePost['id']) ?>">
+                        <li><?= $this->clean($titlePost['title']) ?></li>
+                    </a>
                 <?php endforeach ?>
-
             </ul>
         </div>
         <div class="bg-grey">

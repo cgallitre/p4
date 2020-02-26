@@ -21,26 +21,18 @@ section{
 
 #aside{
     margin-bottom: 2rem;
-    border-radius: .3rem;
-    
+    border-radius: .3rem; 
 }
 
 #main{
   
 }
 
-
-#head{
-    /* margin : 0 0 0 0; */
-   
-}
-
 #foot{
         margin-bottom: 2rem;
-        margin-left: 1 rem;
         background-color: #e9ecef;
         border-radius: .3rem;
-        padding: 4rem 2rem;
+        padding: 3rem ;
 }
 
 .bg-grey{
