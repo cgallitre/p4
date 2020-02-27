@@ -24,7 +24,7 @@
             <?= $content ?>
         </section>
         <footer class="row">
-            <div class="col" id="foot">
+            <div class="col jumbotron" id="foot">
                 Pied de page
             </div>
         </footer>

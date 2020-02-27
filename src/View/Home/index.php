@@ -30,8 +30,8 @@
     </nav>
 </div>
 <!-- aside -->
-<div class="col-md-4" id="aside">
-    <div class="bg-grey p-4">
+<div class="col-md-4">
+    <div class="bg-grey p-4" id="aside">
         <div>
             <h2>Sommaire</h2>
             <ul class="list-unstyled">

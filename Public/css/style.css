@@ -29,12 +29,18 @@ section{
 }
 
 #foot{
-        margin-bottom: 2rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
         background-color: #e9ecef;
         border-radius: .3rem;
-        padding: 3rem ;
+       
 }
 
 .bg-grey{
     background-color: #e9ecef;
+}
+
+img{
+    border-radius: .3rem;
 }
