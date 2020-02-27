@@ -6,8 +6,8 @@ use App\Framework\Request;
 
 use App\Controller\ControllerHome;
 
-require_once 'Request.php';
-require_once 'View.php';
+/* require_once 'Request.php';
+require_once 'View.php'; */
 
 class Router
 {

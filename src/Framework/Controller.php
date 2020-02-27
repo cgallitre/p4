@@ -4,8 +4,8 @@ namespace App\Framework;
 
 use App\Framework\View;
 
-require_once 'Request.php';
-require_once 'View.php';
+/* require_once 'Request.php';
+require_once 'View.php'; */
 
 abstract class Controller 
 {

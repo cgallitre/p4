@@ -3,7 +3,7 @@ namespace App\Model;
 
 use App\Framework\Model;
 
-require_once '../src/Framework/Model.php';
+/* require_once '../src/Framework/Model.php'; */
 
 class Post extends Model
 {

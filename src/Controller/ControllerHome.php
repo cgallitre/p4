@@ -4,8 +4,8 @@ namespace App\Controller;
 use App\Model\Post;
 use App\Framework\Controller;
 
-require_once '../src/Framework/Controller.php';
-require_once '../src/Model/Post.php';
+/* require_once '../src/Framework/Controller.php';
+require_once '../src/Model/Post.php'; */
 
 class ControllerHome extends Controller
 {

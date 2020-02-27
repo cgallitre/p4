@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Framework;
-require_once 'Setup.php';
+/* require_once 'Setup.php'; */
 
 Class View
 {
