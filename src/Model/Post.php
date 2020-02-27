@@ -30,6 +30,5 @@ class Post extends Model
         $sql = 'SELECT id, title FROM posts ORDER BY title';
         $titlesPosts = $this->executeRequest($sql);
         return $titlesPosts;
-        var_dump($titlesPosts);
     }
 }

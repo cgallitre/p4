@@ -4,12 +4,10 @@
     <!-- main content -->
     <?php foreach ($posts as $post) : ?>
     <article class="jumbotron">
-        <header>
-            
-                <h3 class="display-4"><?= $this->clean($post['title']) ?></h3>
-            
+        <header>  
+            <h3 class="display-4"><?= $this->clean($post['title']) ?></h3>
             <hr class="my-4">
-            <time><?= $post['date'] ?></time>
+            <time>Publié le <?= date('d-m-Y', strtotime($post['date'])) ?></time>
         </header>
         <p><?= $this->clean($post['content']) ?></p>
         <p class="lead"><a class="btn btn-dark" href="/post/index/<?= $this->clean($post['id']) ?>" role="button">Lire

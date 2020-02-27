@@ -1,6 +1,7 @@
 <?php
 namespace App\Model;
 
+use DateTime;
 use App\Framework\Model;
 
 /* require_once '../src/Framework/Model.php'; */
@@ -16,7 +17,8 @@ class Comment extends Model
 
     public function addComment($author, $content, $postId){
         $sql = 'INSERT INTO comments (date, author, content, postId) values (?, ?, ?, ?)';
-        $date=date(DATE_W3C);
+        $date = new DateTime('Europe/Paris');
+        $date = $date->format('d-m-Y H:i:s');
         $this->executeRequest($sql, [
             $date,
             $author,

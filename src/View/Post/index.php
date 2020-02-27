@@ -4,7 +4,7 @@
     <article class="jumbotron">
         <header>
             <h3 class="display-4"><?= $this->clean($post['title']) ?></h3>
-            <time><?= $this->clean($post['date']) ?></time>
+            <time>Publié le <?= date('d-m-Y', strtotime($post['date'])) ?></time>
         </header>
         <p><?= $this->clean($post['content']) ?></p>
     </article>
@@ -22,7 +22,7 @@
         </header>
         <?php foreach ($comments as $comment) : ?>
             <hr class="my-4">
-            <p>Le <?= $comment['date'] ?> <?= $this->clean($comment['author']) ?> dit : </p>
+            <p>Le <?= date('d-m-Y à H:i', strtotime($comment['date'])) ?> <?= $this->clean($comment['author']) ?> dit : </p>
             <p><?= $this->clean($comment['content']) ?></p>
         <?php endforeach ?>
     <?php endif ?>
