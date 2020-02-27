@@ -22,11 +22,11 @@ class ControllerPost extends Controller
 
     // Affiche les détails d'un post
     public function index(){
-        $idPost = $this->request->getParameter("id");
+        $postId = $this->request->getParameter("id");
 
-        $post=$this->post->getPost($idPost);
+        $post=$this->post->getPost($postId);
         $titlesPosts = $this->post->getTitlesPosts();
-        $comments=$this->comment->getComments($idPost);
+        $comments=$this->comment->getComments($postId);
         
         $this->generateView([
             'post' => $post,
@@ -36,11 +36,11 @@ class ControllerPost extends Controller
     }
 
     public function comment(){
-        $idPost = $this->request->getParameter("id");
+        $postId = $this->request->getParameter("id");
         $author = $this->request->getParameter("author");
         $content = $this->request->getParameter("content");
         // sauvegarde du comment
-        $this->comment->addComment($author, $content, $idPost);
+        $this->comment->addComment($author, $content, $postId);
         // actualisation de l'affichage
         $this->executeAction("index");
     }
