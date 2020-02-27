@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Framework;
+
+use App\Framework\View;
+
 require_once 'Request.php';
 require_once 'View.php';
 
@@ -20,7 +24,7 @@ abstract class Controller
             $this->{$this->action}();
         } else {
             $classController = get_class($this);
-            throw new Exception("Action $action non défini dans la classe $classController");
+            throw new \Exception("Action $action non défini dans la classe $classController");
         }
     }
 
@@ -32,7 +36,7 @@ abstract class Controller
     protected function generateView($dataView = array()){
         // Déterminer le nom du fichier view à partir du nom du controller$classController actuel
         $classController = get_class($this);
-        $classController = str_replace("Controller", "", $classController);
+        $classController = str_replace("App\Controller\Controller", "", $classController);
         // instancie et génère la view
         $view = new View($this->action, $classController);
         $view->generate($dataView);

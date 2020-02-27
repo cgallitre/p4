@@ -1,6 +1,9 @@
 <?php
+namespace App\Model;
 
-require_once 'Framework/Model.php';
+use App\Framework\Model;
+
+require_once '../src/Framework/Model.php';
 
 class Comment extends Model
 {

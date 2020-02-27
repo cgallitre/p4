@@ -1,7 +1,13 @@
 <?php
+namespace App\Framework;
+
+use App\Framework\View;
+use App\Framework\Request;
+
+use App\Controller\ControllerHome;
 
 require_once 'Request.php';
-require_once 'Framework/View.php';
+require_once 'View.php';
 
 class Router
 {
@@ -10,10 +16,8 @@ class Router
         try {
             // Merge $_GET et $_POST in an associative table 
             $request = new Request(array_merge($_GET, $_POST));
-
             $controller = $this->createController($request);
-            $action=$this->createAction($request);
-            
+            $action=$this->createAction($request);          
             $controller->executeAction($action);
         }
         catch (Exception $e)
@@ -33,15 +37,16 @@ class Router
         }
         // création du name du fichier du controleur
         $classController = "Controller" . $controller;
-        $fileController = "Controller" . DIRECTORY_SEPARATOR . $classController . ".php";
+        $fileController = ".." . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "Controller" . DIRECTORY_SEPARATOR . $classController . ".php";
         if (file_exists($fileController)){
             // instanciation du controleur selon la requête
             require($fileController);
+            $classController = 'App\Controller\\' . $classController;
             $controller = new $classController();
             $controller->setRequest($request);
             return $controller;
         } else {
-            throw new Exception("Fichier $fileController introuvable");
+            throw new \Exception("Fichier $fileController introuvable");
         }
     }
 
@@ -62,7 +67,7 @@ class Router
         if (isset($table[$name])){
             return $table[$name];
         } else {
-            throw new Exception("Paramètre $name absent.");
+            throw new \Exception("Paramètre $name absent.");
         }
     }
 }

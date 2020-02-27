@@ -1,6 +1,9 @@
 <?php
+namespace App\Model;
 
-require_once 'Framework/Model.php';
+use App\Framework\Model;
+
+require_once '../src/Framework/Model.php';
 
 class Post extends Model
 {
@@ -18,7 +21,7 @@ class Post extends Model
         if ($post->rowCount() == 1){
             return $post->fetch();
         } else {
-            throw new Exception("Aucun post ne correspondant à l'identifiant $idPost");
+            throw new \Exception("Aucun post ne correspondant à l'identifiant $idPost");
         }
     }
 

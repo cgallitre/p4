@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Framework;
 require_once 'Setup.php';
 
 abstract class Model {
@@ -11,8 +12,8 @@ abstract class Model {
             $dsn = Setup::get('dsn');
             $login = Setup::get('login');
             $pass= Setup::get('pass');
-            self::$db = new PDO ($dsn, $login, $pass);
-            self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$db = new \PDO ($dsn, $login, $pass);
+            self::$db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }
         return self::$db;
     }

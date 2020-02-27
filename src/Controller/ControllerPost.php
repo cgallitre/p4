@@ -1,8 +1,13 @@
 <?php
+namespace App\Controller;
 
-require_once 'Framework/Controller.php';
-require_once 'Model/Post.php';
-require_once 'Model/Comment.php';
+use App\Model\Post;
+use App\Model\Comment;
+use App\Framework\Controller;
+
+require_once '../src/Framework/Controller.php';
+require_once '../src/Model/Post.php';
+require_once '../src/Model/Comment.php';
 
 class ControllerPost extends Controller
 {

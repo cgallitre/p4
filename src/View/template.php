@@ -6,9 +6,9 @@
     <base href="<?= $rootWeb ?>" >
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- CSS pour le tuto A supprimer -->
-    <link rel="stylesheet" href="Content/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title><?= $title ?></title>
 </head>
 
@@ -17,7 +17,7 @@
         <header class="row">
             <div class="col" id="head">
                 <a href="index.php"><h1><?= $title ?></h1></a>
-                <img src="Content/img/entete.jpg" class="img-fluid" alt="Illustration du blog de Jean">
+                <img src="img/entete.jpg" class="img-fluid" alt="Illustration du blog de Jean">
             </div>
         </header>
         <section class="row">

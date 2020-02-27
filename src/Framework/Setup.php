@@ -1,4 +1,5 @@
 <?php
+namespace App\Framework;
 
 class Setup
 {
@@ -17,12 +18,12 @@ class Setup
     // Return array of parameters 
     private static function getParameters() {
         if (self::$parameters == null) {
-            $pathFile = "Setup/prod.ini";
+            $pathFile = "../src/Setup/prod.ini";
             if (!file_exists($pathFile)) {
-                $pathFile = "Setup/dev.ini";
+                $pathFile = "../src/Setup/dev.ini";
             }
             if (!file_exists($pathFile)) {
-                throw new Exception("Aucun fichier de configuration trouvé");
+                throw new \Exception("Aucun fichier de configuration trouvé");
             }
             else {
                 self::$parameters = parse_ini_file($pathFile);

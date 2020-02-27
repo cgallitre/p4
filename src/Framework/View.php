@@ -1,6 +1,7 @@
 <?php
 
-require_once 'Framework/Setup.php';
+namespace App\Framework;
+require_once 'Setup.php';
 
 Class View
 {
@@ -9,7 +10,8 @@ Class View
 
     public function __construct($action, $controller="")
     {
-        $file="View" . DIRECTORY_SEPARATOR;
+ 
+        $file=".." . DIRECTORY_SEPARATOR . "src" . DIRECTORY_SEPARATOR . "View" . DIRECTORY_SEPARATOR;
         if ($controller !=""){
             $file = $file . $controller . DIRECTORY_SEPARATOR;
         }
@@ -20,7 +22,7 @@ Class View
     {
         $content=$this->generateFile($this->file, $data);
         $rootWeb = Setup::get("rootWeb","/");
-        $View = $this->generateFile('View/template.php',[
+        $View = $this->generateFile('../src/View/template.php',[
             'title' => $this->title,
             'content' => $content,
             'rootWeb' => $rootWeb,
@@ -36,7 +38,7 @@ Class View
             require $file;
             return ob_get_clean();
         } else {
-        throw new Exception("Fichier $file introuvable");
+        throw new \Exception("Fichier $file introuvable");
         }
     } 
 
