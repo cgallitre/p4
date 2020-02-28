@@ -24,4 +24,18 @@ class Comment extends Model
             $postId
         ]);
     }
+
+    public function getListComments()
+    {
+        $sql = 'SELECT comments.id, comments.date, comments.author, comments.content, comments.postId FROM comments INNER JOIN posts ON posts.id = comments.postId ';
+        $Comments = $this->executeRequest($sql);
+        return $Comments;
+    }
+
+    public function deleteComment($commentId)
+    {
+        $sql= 'DELETE FROM comments WHERE id = ?';
+        $commentDelete = $this->executeRequest($sql, [$commentId]);
+        return $commentDelete;
+    }
 }

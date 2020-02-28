@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Model\Post;
 use App\Framework\Controller;
 
-class Controllerlist extends Controller
+class ControllerListPosts extends Controller
 {
     private $post;
 

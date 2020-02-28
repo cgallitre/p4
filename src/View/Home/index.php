@@ -35,7 +35,8 @@
             <h2>Commandes</h2>
             <ul class="list-unstyled">
                 <li>Ajouter un billet</li>
-                <li><a href="/list/index">Modifier un billet</li>
+                <li><a href="/listPosts/index">Modifier un billet</a></li>
+                <li><a href="/listComments/index">Modérer les commentaires</a></li>
             </ul>
             <!-- Fin session utilisateur -->
             <h2>Sommaire</h2>
