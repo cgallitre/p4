@@ -34,7 +34,7 @@
             <!-- En fonction de la session utilisateur -->
             <h2>Commandes</h2>
             <ul class="list-unstyled">
-                <li>Ajouter un billet</li>
+                <li><a href="/addPost/index">Ajouter un billet</a></li>
                 <li><a href="/listPosts/index">Modifier un billet</a></li>
                 <li><a href="/listComments/index">Modérer les commentaires</a></li>
             </ul>
@@ -47,12 +47,6 @@
                     </a>
                 <?php endforeach ?>
             </ul>
-        </div>
-        <div class="bg-grey">
-            <h2>Bio</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem facere hic provident incidunt,
-                magnam quibusdam quaerat labore laudantium et beatae ipsum modi laborum sequi assumenda dicta aut.
-                Nobis, reiciendis modi!</p>
         </div>
     </div>
 </div>

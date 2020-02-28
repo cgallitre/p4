@@ -36,4 +36,16 @@ class Post extends Model
         $postDelete = $this->executeRequest($sql, [$postId]);
         return $postDelete;
     }
+
+    public function addPost($title, $content)
+    {
+        $sql = 'INSERT INTO posts (date, title, content) VALUES (?, ?, ?)';
+        $date = new \DateTime('Europe/Paris');
+        $date = $date->format('Y-m-d H:i:s');
+        $this->executeRequest($sql, [
+            $date, 
+            $title,
+            $content
+        ]);
+    }
 }

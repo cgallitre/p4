@@ -25,7 +25,10 @@
         </section>
         <footer class="row">
             <div class="col jumbotron" id="foot">
-                Pied de page
+                <h4>Qui es Jean Forteroche ?</h4>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non dolore tempore in exercitationem, ipsa quae quisquam, eaque quas maxime libero? Recusandae amet saepe reprehenderit tempora rerum ducimus, placeat adipisci.
+                </p>
             </div>
         </footer>
     </div>

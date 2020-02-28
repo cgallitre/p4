@@ -14,8 +14,8 @@
         <?php foreach ($comments as $comment) : ?>
         <tr>
             <td scope="row"><?= $this->clean($comment['date']) ?></td>
-            <td scope="row"><?= $this->clean($comment['date']) ?></td>
-            <td width="80%"><?= $this->clean($comment['content']) ?></td>
+            <td scope="row"><?= $this->clean($comment['title']) ?></td>
+            <td width="70%"><?= $this->clean($comment['content']) ?></td>
             <th scope="row"><?= $this->clean($comment['author']) ?></th>
             <td><a href="listcomments/delete/<?= $this->clean($comment['id']) ?>"><button class="btn btn-primary">Supprimer</button></a></td>
         </tr>

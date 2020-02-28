@@ -16,7 +16,7 @@ class Comment extends Model
     public function addComment($author, $content, $postId){
         $sql = 'INSERT INTO comments (date, author, content, postId) values (?, ?, ?, ?)';
         $date = new DateTime('Europe/Paris');
-        $date = $date->format('d-m-Y H:i:s');
+        $date = $date->format('Y-m-d H:i:s');
         $this->executeRequest($sql, [
             $date,
             $author,
@@ -27,7 +27,7 @@ class Comment extends Model
 
     public function getListComments()
     {
-        $sql = 'SELECT comments.id, comments.date, comments.author, comments.content, comments.postId FROM comments INNER JOIN posts ON posts.id = comments.postId ';
+        $sql = 'SELECT comments.id, comments.date, comments.author, comments.content, comments.postId, posts.title FROM comments INNER JOIN posts ON posts.id = comments.postId ';
         $Comments = $this->executeRequest($sql);
         return $Comments;
     }
