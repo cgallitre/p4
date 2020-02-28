@@ -22,7 +22,6 @@ class Controllerlist extends Controller
 
     public function delete(){
         $postId = $this->request->getParameter("id");
-        var_dump($postId);
         // delete post
         $this->post->deletePost($postId);
         // actualisation de l'affichage

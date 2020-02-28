@@ -5,9 +5,6 @@ use App\Model\Post;
 use App\Model\Comment;
 use App\Framework\Controller;
 
-/* require_once '../src/Framework/Controller.php';
-require_once '../src/Model/Post.php';
-require_once '../src/Model/Comment.php'; */
 
 class ControllerPost extends Controller
 {

@@ -4,8 +4,6 @@ namespace App\Model;
 use DateTime;
 use App\Framework\Model;
 
-/* require_once '../src/Framework/Model.php'; */
-
 class Comment extends Model
 {
     public function getComments($postId)
