@@ -31,4 +31,11 @@ class Post extends Model
         $titlesPosts = $this->executeRequest($sql);
         return $titlesPosts;
     }
+
+    public function deletePost($postId)
+    {
+        $sql= 'DELETE FROM posts WHERE id = ?';
+        $postDelete = $this->executeRequest($sql, [$postId]);
+        return $postDelete;
+    }
 }

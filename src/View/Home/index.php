@@ -31,6 +31,13 @@
 <div class="col-md-4">
     <div class="bg-grey p-4" id="aside">
         <div>
+            <!-- En fonction de la session utilisateur -->
+            <h2>Commandes</h2>
+            <ul class="list-unstyled">
+                <li>Ajouter un billet</li>
+                <li><a href="/list/index">Modifier un billet</li>
+            </ul>
+            <!-- Fin session utilisateur -->
             <h2>Sommaire</h2>
             <ul class="list-unstyled">
                 <?php foreach ($titlesPosts as $titlePost) : ?>
