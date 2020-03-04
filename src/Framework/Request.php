@@ -22,7 +22,7 @@ class Request
         if($this->existParameter($name)){
             return $this->parameters[$name];
         } else {
-            throw new \Exception ("Parametre $name absent de la requête");
+            throw new \Exception ("Paramètre $name absent de la requête");
         }
     }
 }

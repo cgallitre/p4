@@ -7,15 +7,15 @@ class Post extends Model
 {
     public function getPosts()
     {
-        $sql = 'SELECT id as id, date as date, title as title, content as content FROM posts ORDER BY id DESC';
+        $sql = 'SELECT id as id, created_at as date, title as title, content as content FROM posts ORDER BY id DESC';
         $posts = $this->executeRequest($sql);
         return $posts;
     }
 
     public function getPost($idPost)
     {
-        $sql = 'SELECT id as id, date as date, title as title, content as content FROM posts WHERE id = ?';
-        $post = $this->executeRequest($sql, [$idPost]);
+        $sql = 'SELECT id as id, created_at as date, title as title, content as content FROM posts WHERE id = :id';
+        $post = $this->executeRequest($sql, ['id' => $idPost]);
         if ($post->rowCount() == 1){
             return $post->fetch();
         } else {
@@ -32,20 +32,19 @@ class Post extends Model
 
     public function deletePost($postId)
     {
-        $sql= 'DELETE FROM posts WHERE id = ?';
-        $postDelete = $this->executeRequest($sql, [$postId]);
+        $sql= 'DELETE FROM posts WHERE id = :id';
+        $postDelete = $this->executeRequest($sql, ['id' => $postId]);
         return $postDelete;
     }
 
-    public function addPost($title, $content)
+    public function addPost($title, $content, $published, $date)
     {
-        $sql = 'INSERT INTO posts (date, title, content) VALUES (?, ?, ?)';
-        $date = new \DateTime('Europe/Paris');
-        $date = $date->format('Y-m-d H:i:s');
+        $sql = 'INSERT INTO posts (created_at, title, content, published) VALUES (:date, :title, :content, :published)';
         $this->executeRequest($sql, [
-            $date, 
-            $title,
-            $content
+            'date' => $date, 
+            'title' => $title,
+            'content' => $content,
+            'published' => $published
         ]);
     }
 }

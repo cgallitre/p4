@@ -36,9 +36,13 @@ class ControllerPost extends Controller
         $postId = $this->request->getParameter("id");
         $author = $this->request->getParameter("author");
         $content = $this->request->getParameter("content");
+        $date = new \DateTime('Europe/Paris');
+        $date = $date->format('Y-m-d H:i:s');
+        $status = 1; // 1 = default value = published
         // sauvegarde du comment
-        $this->comment->addComment($author, $content, $postId);
+        $this->comment->addComment($author, $content, $postId, $date, $status);
         // actualisation de l'affichage
         $this->executeAction("index");
     }
+
 }

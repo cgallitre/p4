@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- CSS pour le tuto A supprimer -->
     <link rel="stylesheet" href="css/style.css">
     <title><?= $title ?></title>
+
 </head>
 
 <body>
@@ -25,7 +25,7 @@
         </section>
         <footer class="row">
             <div class="col jumbotron" id="foot">
-                <h4>Qui es Jean Forteroche ?</h4>
+                <h4>Qui est Jean Forteroche ?</h4>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non dolore tempore in exercitationem, ipsa quae quisquam, eaque quas maxime libero? Recusandae amet saepe reprehenderit tempora rerum ducimus, placeat adipisci.
                 </p>
