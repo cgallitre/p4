@@ -16,18 +16,19 @@
     <div class="container">
         <header class="row">
             <div class="col" id="head">
-                <a href="index.php"><h1><?= $title ?></h1></a>
-                <img src="img/entete.jpg" class="img-fluid" alt="Illustration du blog de Jean">
+                <a href="/"><h1><?= $title ?></h1></a>
+                <img src="img/entete.jpg" class="img-fluid" alt="Illustration du livre de Jean Forteroche">
             </div>
         </header>
         <section class="row">
             <?= $content ?>
         </section>
         <footer class="row">
-            <div class="col jumbotron" id="foot">
-                <h4>Qui est Jean Forteroche ?</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio non dolore tempore in exercitationem, ipsa quae quisquam, eaque quas maxime libero? Recusandae amet saepe reprehenderit tempora rerum ducimus, placeat adipisci.
+            <div class="col" id="foot">
+                <h5 class="text-center">Copyright Jean Forteroche</h5>
+                <p class="text-center">
+                    <a href="backoffice/index"><button type="button" class="btn btn-light">Administration</button>
+                    </a>
                 </p>
             </div>
         </footer>

@@ -3,7 +3,7 @@
 <div class="col-md-12" id="main">
     <!-- main content -->
     <h2>Ajouter un billet</h2>
-        <form action="post/add" method="post">
+        <form action="post/add" method="post" class="jumbotron">
             <div class="form-group">
                 <label for="title">Titre du chapitre</label>
                 <input type="text" id="title" name="title" class="form-control" required>
@@ -18,6 +18,4 @@
             </div>
             <button class="btn btn-dark" type="submit">Ajouter</button>
         </form>
-
-        <form>
 </div>

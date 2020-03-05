@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Model\Comment;
 use App\Framework\Controller;
 
-class ControllerListComments extends Controller
+class ControllerComment extends Controller
 {
     private $comment;
 
@@ -14,6 +14,7 @@ class ControllerListComments extends Controller
         $this->comment = new Comment();
     }
 
+    // list all comments
     public function index(){
         $comments = $this->comment->getListComments();
         $this->generateView([
@@ -21,7 +22,9 @@ class ControllerListComments extends Controller
             ]);
     }
 
+    // delete a comment
     public function delete(){
+        $this->checkConnection();
         $commentId = $this->request->getParameter("id");
         // delete post
         $this->comment->deleteComment($commentId);

@@ -3,7 +3,7 @@
 <div class="col-md-12" id="main">
     <!-- main content -->
     <h2>Modifier un billet</h2>
-        <form action="post/update" method="post">
+        <form action="post/update" method="post" class="jumbotron">
             <input type="hidden" id="id" name="id" value="<?= $post['id'] ?>">
             <div class="form-group">
                 <label for="title">Titre du chapitre</label>

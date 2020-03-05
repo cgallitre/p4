@@ -1,11 +1,12 @@
-<?php $this->title = 'Le blog de Jean Forteroche - ' . $this->clean($post['title']); ?>
+<?php $this->title = "Le blog de Jean Forteroche" ?>
 <div class="col-md-8" id="main">
     <!-- main content -->
     <article class="jumbotron">
         <header>
             <h3 class="display-4"><?= $this->clean($post['title']) ?></h3>
-            <time>Publié le <?= date('d-m-Y', strtotime($post['date'])) ?></time>
+            <time>Publié le <?= date('d/m/Y', strtotime($post['date'])) ?></time>
         </header>
+        <br>
         <p><?= $this->clean($post['content']) ?></p>
     </article>
 
@@ -24,11 +25,13 @@
             <hr class="my-4">
             <p>Le <?= date('d-m-Y à H:i', strtotime($comment['date'])) ?> <?= $this->clean($comment['author']) ?> dit : </p>
             <p><?= $this->clean($comment['content']) ?></p>
+            <button class="btn btn-danger">Signaler</button>
         <?php endforeach ?>
     <?php endif ?>
 
     <br>
-    <div class="form-group">
+    
+    <div class="form-group" id="ajoutCommentaire">
         <h4>Ajouter un commentaire</h4>
         <form action="post/comment" method="post">
             <input type="text" id="author" name="author" placeholder="Votre pseudo" class="form-control" required><br>
@@ -42,23 +45,17 @@
 
 <!-- aside -->
 <div class="col-md-4">
-    <div class="bg-grey p-4" id="aside">
+    <div class="bg-grey p-4 jumbotron" id="aside">
         <div>
             <h2>Sommaire</h2>
             <ul class="list-unstyled">
                 <?php foreach ($titlesPosts as $titlePost) : ?>
-                    <a href="/post/index/<?= $this->clean($titlePost['id']) ?>">
+                    <a href="/post/view/<?= $this->clean($titlePost['id']) ?>">
                         <li><?= $this->clean($titlePost['title']) ?></li>
                     </a>
                 <?php endforeach ?>
 
             </ul>
-        </div>
-        <div class="bg-grey">
-            <h2>Bio</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem facere hic provident incidunt,
-                magnam quibusdam quaerat labore laudantium et beatae ipsum modi laborum sequi assumenda dicta aut.
-                Nobis, reiciendis modi!</p>
         </div>
     </div>
 </div>

@@ -38,4 +38,11 @@ abstract class Controller
         $view = new View($this->action, $classController);
         $view->generate($dataView);
     }
+
+    protected function checkConnection()
+        {
+            if (!(isset($_SESSION['auth']))) {
+                header('Location: /backoffice/index');
+         }
+    }
 }

@@ -45,6 +45,8 @@ class ControllerPost extends Controller
     
     // form to add a post
     public function add(){
+ 
+        $this->checkConnection();
         if ($this->request->existParameter("title"))
         {
             $title = $this->request->getParameter("title");
@@ -65,6 +67,7 @@ class ControllerPost extends Controller
 
     // To view posts for update or delete
     public function manage(){
+        $this->checkConnection();
         $titlesPosts = $this->post->getTitlesPosts();
         $this->generateView([
             'titlesPosts' => $titlesPosts
@@ -73,6 +76,7 @@ class ControllerPost extends Controller
 
     public function update()
     {
+        $this->checkConnection();
         if ($this->request->existParameter("title"))
         {
             // Save modifications
@@ -105,11 +109,10 @@ class ControllerPost extends Controller
                 'post' => $post
                 ]);
         }
-        
-
     }
 
     public function delete(){
+        $this->checkConnection();
         $postId = $this->request->getParameter("id");
         // delete post
         $this->post->deletePost($postId);

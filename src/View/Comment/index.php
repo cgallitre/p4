@@ -14,12 +14,12 @@
         </tr>
         <?php foreach ($comments as $comment) : ?>
         <tr>
-            <td scope="row"><?= $this->clean($comment['date']) ?></td>
+            <td scope="row"><?= date('d/m/Y', strtotime($comment['date'])) ?></td>
             <td scope="row"><?= $this->clean($comment['title']) ?></td>
             <td width="70%"><?= $this->clean($comment['content']) ?></td>
             <td scope="row"><?= $this->clean($comment['author']) ?></td>
             <td scope="row"><?= $this->clean($comment['status']) ?></td>
-            <td><a href="listcomments/delete/<?= $this->clean($comment['id']) ?>"><button class="btn btn-primary">Supprimer</button></a></td>
+            <td><a href="comment/delete/<?= $this->clean($comment['id']) ?>"><button class="btn btn-primary">Supprimer</button></a></td>
         </tr>
         <?php endforeach ?>
     </table>
