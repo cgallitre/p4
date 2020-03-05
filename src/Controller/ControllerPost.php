@@ -45,4 +45,24 @@ class ControllerPost extends Controller
         $this->executeAction("index");
     }
 
+    public function add(){
+        if ($this->request->existParameter("title"))
+        {
+            $title = $this->request->getParameter("title");
+            $content = $this->request->getParameter("content");
+            $date = new \DateTime('Europe/Paris');
+            $date = $date->format('Y-m-d H:i:s');
+
+            if ($this->request->existParameter("published"))
+            {
+                $published = 1; // 1 = published
+            } else {
+                $published = 0; // 0 = not published
+            }
+            
+            $this->post->addPost($title, $content, $published, $date);
+        }
+        $this->generateView([]);
+    }
+
 }
