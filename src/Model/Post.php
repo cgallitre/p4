@@ -47,4 +47,15 @@ class Post extends Model
             'published' => $published
         ]);
     }
+
+    public function updatePost($title, $content, $published, $postId)
+    {
+        $sql = 'UPDATE posts SET title = :title, content = :content, published = :published WHERE id = :id';
+        $this->executeRequest($sql, [
+            'title' => $title,
+            'content' => $content,
+            'published' => $published,
+            'id' => $id
+        ]);
+    }
 }
