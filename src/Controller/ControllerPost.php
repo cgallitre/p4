@@ -17,8 +17,18 @@ class ControllerPost extends Controller
         $this->comment = new comment();
     }
 
-    // Affiche les détails d'un post
+    // List all posts
     public function index(){
+        $posts = $this->post->getPosts();
+        $titlesPosts = $this->post->getTitlesPosts();
+        $this->generateView([
+            'posts' => $posts,
+            'titlesPosts' => $titlesPosts
+            ]);
+    }
+
+    // one post
+    public function view(){
         $postId = $this->request->getParameter("id");
 
         $post=$this->post->getPost($postId);
@@ -32,6 +42,7 @@ class ControllerPost extends Controller
         ]);
     }
 
+    // add a comment to the post 
     public function comment(){
         $postId = $this->request->getParameter("id");
         $author = $this->request->getParameter("author");
@@ -39,12 +50,13 @@ class ControllerPost extends Controller
         $date = new \DateTime('Europe/Paris');
         $date = $date->format('Y-m-d H:i:s');
         $status = 1; // 1 = default value = published
-        // sauvegarde du comment
+        // save of the comment
         $this->comment->addComment($author, $content, $postId, $date, $status);
-        // actualisation de l'affichage
-        $this->executeAction("index");
+        // view
+        $this->executeAction("view");
     }
 
+    // form to add a post
     public function add(){
         if ($this->request->existParameter("title"))
         {
@@ -64,5 +76,4 @@ class ControllerPost extends Controller
         }
         $this->generateView([]);
     }
-
 }

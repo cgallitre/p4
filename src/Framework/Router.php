@@ -28,7 +28,7 @@ class Router
 
     // Crée le controleur en fonction de la requête
     private function createController(Request $request){
-        $controller='Home'; // valeur par défaut
+        $controller='Post'; // valeur par défaut
         
         if ($request->existParameter('controller')){
             $controller = $request->getParameter('controller');

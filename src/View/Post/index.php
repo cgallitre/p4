@@ -1,64 +1,52 @@
-<?php $this->title = 'Le blog de Jean Forteroche - ' . $this->clean($post['title']); ?>
+<?php $this->title = "Le blog de Jean Forteroche" ?>
+
 <div class="col-md-8" id="main">
     <!-- main content -->
+    <?php foreach ($posts as $post) : ?>
     <article class="jumbotron">
-        <header>
+        <header>  
             <h3 class="display-4"><?= $this->clean($post['title']) ?></h3>
+            <hr class="my-4">
             <time>Publié le <?= date('d-m-Y', strtotime($post['date'])) ?></time>
         </header>
         <p><?= $this->clean($post['content']) ?></p>
+        <p class="lead"><a class="btn btn-dark" href="/post/view/<?= $this->clean($post['id']) ?>" role="button">Lire
+                la suite...</a></p>
     </article>
 
+    <?php endforeach; ?>
 
-    <?php // Calcul du nombre de commentaires
-
-        $comments = $comments->fetchAll();
-        $numComments = count($comments);
-    ?>
-    <!-- Si aucun commentaire, aucun affichage -->
-    <?php if ($numComments > 0) : ?> 
-        <header>
-            <h3 class="display-5">Réponses à <?= $this->clean($post['title']) ?></h3>
-        </header>
-        <?php foreach ($comments as $comment) : ?>
-            <hr class="my-4">
-            <p>Le <?= date('d-m-Y à H:i', strtotime($comment['date'])) ?> <?= $this->clean($comment['author']) ?> dit : </p>
-            <p><?= $this->clean($comment['content']) ?></p>
-        <?php endforeach ?>
-    <?php endif ?>
-
-    <br>
-    <div class="form-group">
-        <h4>Ajouter un commentaire</h4>
-        <form action="post/comment" method="post">
-            <input type="text" id="author" name="author" placeholder="Votre pseudo" class="form-control" required><br>
-            <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire"
-                class="form-control" required></textarea><br>
-            <input type="hidden" name="id" value="<?= $this->clean($post['id']) ?>">
-            <input class="btn btn-dark" type="submit" value="Commenter">
-        </form>
-    </div>
+    <!-- Pagination -->
+    <nav aria-label="Navigation dans les articles">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled"><a class="page-link" href="#">Précédent</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+        </ul>
+    </nav>
 </div>
-
 <!-- aside -->
 <div class="col-md-4">
     <div class="bg-grey p-4" id="aside">
         <div>
+            <!-- En fonction de la session utilisateur -->
+            <h2>Commandes</h2>
+            <ul class="list-unstyled">
+                <li><a href="/post/add">Ajouter un billet</a></li>
+                <li><a href="/listPosts/index">Modifier un billet</a></li>
+                <li><a href="/listComments/index">Modérer les commentaires</a></li>
+            </ul>
+            <!-- Fin session utilisateur -->
             <h2>Sommaire</h2>
             <ul class="list-unstyled">
                 <?php foreach ($titlesPosts as $titlePost) : ?>
-                    <a href="/post/index/<?= $this->clean($titlePost['id']) ?>">
+                   <a href="/post/index/<?= $this->clean($titlePost['id']) ?>">
                         <li><?= $this->clean($titlePost['title']) ?></li>
                     </a>
                 <?php endforeach ?>
-
             </ul>
-        </div>
-        <div class="bg-grey">
-            <h2>Bio</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem facere hic provident incidunt,
-                magnam quibusdam quaerat labore laudantium et beatae ipsum modi laborum sequi assumenda dicta aut.
-                Nobis, reiciendis modi!</p>
         </div>
     </div>
 </div>
