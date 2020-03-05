@@ -14,7 +14,7 @@
         <tr>
             <th scope="row"><?= $this->clean($titlePost['id']) ?></th>
             <td width="80%"><?= $this->clean($titlePost['title']) ?></td>
-            <td><button class="btn btn-primary">Modifier</button></td>
+            <td><a href="post/update/<?= $this->clean($titlePost['id']) ?>"<button class="btn btn-primary">Modifier</button></a></td>
             <td><a href="post/delete/<?= $this->clean($titlePost['id']) ?>"><button class="btn btn-primary">Supprimer</button></a></td>
         </tr>
         <?php endforeach ?>

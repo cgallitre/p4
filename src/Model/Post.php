@@ -14,7 +14,7 @@ class Post extends Model
 
     public function getPost($idPost)
     {
-        $sql = 'SELECT id as id, created_at as date, title as title, content as content FROM posts WHERE id = :id';
+        $sql = 'SELECT id as id, created_at as date, title as title, content as content, published FROM posts WHERE id = :id';
         $post = $this->executeRequest($sql, ['id' => $idPost]);
         if ($post->rowCount() == 1){
             return $post->fetch();
@@ -55,7 +55,7 @@ class Post extends Model
             'title' => $title,
             'content' => $content,
             'published' => $published,
-            'id' => $id
+            'id' => $postId
         ]);
     }
 }

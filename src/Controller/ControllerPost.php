@@ -58,13 +58,12 @@ class ControllerPost extends Controller
             } else {
                 $published = 0; // 0 = not published
             }
-            
             $this->post->addPost($title, $content, $published, $date);
         }
         $this->generateView([]);
     }
 
-    // To view posts for update ou delete
+    // To view posts for update or delete
     public function manage(){
         $titlesPosts = $this->post->getTitlesPosts();
         $this->generateView([
@@ -74,6 +73,39 @@ class ControllerPost extends Controller
 
     public function update()
     {
+        if ($this->request->existParameter("title"))
+        {
+            // Save modifications
+            $postId = $this->request->getParameter("id");
+            $title = $this->request->getParameter("title");
+            $content = $this->request->getParameter("content");
+
+            if ($this->request->existParameter("published"))
+            {
+                $published = 1; // 1 = published
+            } else {
+                $published = 0; // 0 = not published
+            }
+
+            $this->post->updatePost($title, $content, $published, $postId);
+            // view list of posts
+            $this->executeAction("manage");
+
+        } else {
+
+            // view post
+            $postId = $this->request->getParameter("id");
+            $post=$this->post->getPost($postId);
+            
+            if ($post['published'] == 1){
+                $post['published'] = "checked";
+            }
+            
+            $this->generateView([
+                'post' => $post
+                ]);
+        }
+        
 
     }
 
