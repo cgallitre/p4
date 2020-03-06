@@ -11,11 +11,20 @@
         </header>
         <hr>
         <?php foreach ($posts as $post) : ?>
-            <a href="/post/view/<?= $this->clean($post['id']) ?>">
-                <h4><?= $this->clean($post['title']) ?></h4>
-            </a>
+            <div class="post">
+                <a href="/post/view/<?= $this->clean($post['id']) ?>">
+                    <h4><?= $this->clean($post['title']) ?></h4>
+                </a>
+                <p>
+                    <?= substr($this->clean($post['content']), 0, 200) . '...' ?>
+                </p>
+                <a href="/post/view/<?= $this->clean($post['id']) ?>">
+                    <button class="btn btn-light">Lire la suite...</button>
+                </a>
+            </div>
         <?php endforeach; ?> 
     </article> 
+    
 
 </div>
 <!-- aside -->

@@ -16,7 +16,7 @@ class ControllerBackoffice extends Controller
     public function index()
     {
         if (isset($_SESSION['auth'])){
-            // Aller au dashboard
+            // go to dashboard
             header('Location: /backoffice/dashboard');
 
         } elseif ($this->request->existParameter("username")) {
@@ -24,7 +24,7 @@ class ControllerBackoffice extends Controller
             $login = $this->login->getLogin();
             $username = $this->request->getParameter("username");
             $pass = $this->request->getParameter("password");
-            if ($login['username']==$username && $login['password']==$pass){
+            if ($login['username']==$username && password_verify($pass, $login['password'])){
                 // authentification ok
                 $_SESSION['auth'] = true;
                 $this->executeAction("index");
@@ -40,6 +40,13 @@ class ControllerBackoffice extends Controller
     {
         $this->checkConnection();
         $this->generateView([]);
+    }
+
+    public function logout()
+    {
+        $_SESSION=[];
+        \session_destroy();
+        $this->executeAction("index");
     }
 
 }

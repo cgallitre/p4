@@ -19,11 +19,9 @@ class ControllerPost extends Controller
 
     // List all posts
     public function index(){
-        $posts = $this->post->getPosts();
-        $titlesPosts = $this->post->getTitlesPosts();
+        $posts = $this->post->getPostsPublished();
         $this->generateView([
             'posts' => $posts,
-            'titlesPosts' => $titlesPosts
             ]);
     }
 
@@ -61,8 +59,10 @@ class ControllerPost extends Controller
                 $published = 0; // 0 = not published
             }
             $this->post->addPost($title, $content, $published, $date);
+            header('Location: /backoffice/dashboard');
         }
         $this->generateView([]);
+        
     }
 
     // To view posts for update or delete
@@ -131,6 +131,16 @@ class ControllerPost extends Controller
         // save of the comment
         $this->comment->addComment($author, $content, $postId, $date, $status);
         // view
+        $this->executeAction("view");
+    }
+
+        // signal a comment
+    public function signal()
+    {
+        $commentId = $this->request->getParameter("id");
+        // delete post
+        $this->comment->signalComment($commentId);
+        // actualisation de l'affichage
         $this->executeAction("view");
     }
 }

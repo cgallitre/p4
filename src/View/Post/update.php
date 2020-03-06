@@ -11,7 +11,7 @@
             </div>
             <div class="form-group">
                 <label for="content">Votre texte</label>
-                <textarea name="content" id="content" cols="30" rows="5" class="form-control" required><?= $this->clean($post['content']) ?></textarea>
+                <textarea name="content" id="content" rows="20" class="form-control" required><?= $this->clean($post['content']) ?></textarea>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" id="published" name="published" class="form-check-input" <?= $this->clean($post['published'])?>>

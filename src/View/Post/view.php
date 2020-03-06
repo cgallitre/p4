@@ -25,7 +25,7 @@
             <hr class="my-4">
             <p>Le <?= date('d-m-Y à H:i', strtotime($comment['date'])) ?> <?= $this->clean($comment['author']) ?> dit : </p>
             <p><?= $this->clean($comment['content']) ?></p>
-            <button class="btn btn-danger">Signaler</button>
+            <a href="post/signal/<?= $this->clean($comment['id']) ?>"><button class="btn btn-danger">Signaler</button></a>
         <?php endforeach ?>
     <?php endif ?>
 

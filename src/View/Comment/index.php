@@ -5,21 +5,20 @@
     <h2>Liste des commentaires</h2>
     <table class="table table-striped">
         <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Titre du billet</th>
+            <th scope="col" class="text-center">Date</th>
             <th scope="col">Commentaire</th>
             <th scope="col">Auteur</th>
-            <th scope="col">status</th>
-            <th scope="col">Commande</th>
+            <th scope="col">Actions</th>
         </tr>
         <?php foreach ($comments as $comment) : ?>
         <tr>
-            <td scope="row"><?= date('d/m/Y', strtotime($comment['date'])) ?></td>
-            <td scope="row"><?= $this->clean($comment['title']) ?></td>
-            <td width="70%"><?= $this->clean($comment['content']) ?></td>
-            <td scope="row"><?= $this->clean($comment['author']) ?></td>
-            <td scope="row"><?= $this->clean($comment['status']) ?></td>
-            <td><a href="comment/delete/<?= $this->clean($comment['id']) ?>"><button class="btn btn-primary">Supprimer</button></a></td>
+            <td width="10%""><?= date('d/m/Y', strtotime($comment['date'])) ?></td>
+            <td><?= $this->clean($comment['content']) ?></td>
+            <td width="20%"><?= $this->clean($comment['author']) ?></td>
+            <td width="10%">
+                <a href="comment/valid/<?= $this->clean($comment['id']) ?>" title="Valider"><button class="btn btn-success"> </button></a>
+                <a href="comment/delete/<?= $this->clean($comment['id']) ?>" title="Supprimer"><button class="btn btn-danger"> </button></a>
+            </td>
         </tr>
         <?php endforeach ?>
     </table>

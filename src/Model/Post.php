@@ -5,9 +5,16 @@ use App\Framework\Model;
 
 class Post extends Model
 {
-    public function getPosts()
+    public function getPostsPublished()
     {
-        $sql = 'SELECT id as id, created_at as date, title as title, content as content FROM posts ORDER BY id DESC';
+        $sql = 'SELECT id as id, created_at as date, title as title, content as content FROM posts WHERE published=1 ORDER BY id';
+        $posts = $this->executeRequest($sql);
+        return $posts;
+    }
+
+        public function getPostsUnPublished()
+    {
+        $sql = 'SELECT id as id, created_at as date, title as title, content as content FROM posts WHERE published=0 ORDER BY id';
         $posts = $this->executeRequest($sql);
         return $posts;
     }
@@ -25,10 +32,10 @@ class Post extends Model
 
     public function getTitlesPosts()
     {
-        $sql = 'SELECT id, title FROM posts ORDER BY title';
+        $sql = 'SELECT id, title, published FROM posts ORDER BY id';
         $titlesPosts = $this->executeRequest($sql);
         return $titlesPosts;
-    }
+    } 
 
     public function deletePost($postId)
     {

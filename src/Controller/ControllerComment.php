@@ -14,7 +14,7 @@ class ControllerComment extends Controller
         $this->comment = new Comment();
     }
 
-    // list all comments
+    // list all signaled comments
     public function index(){
         $comments = $this->comment->getListComments();
         $this->generateView([
@@ -31,4 +31,15 @@ class ControllerComment extends Controller
         // actualisation de l'affichage
         $this->executeAction("index");
     }
+
+    // agree a comment
+    public function valid(){
+        $this->checkConnection();
+        $commentId = $this->request->getParameter("id");
+        // delete post
+        $this->comment->updateComment($commentId);
+        // actualisation de l'affichage
+        $this->executeAction("index");
+    }
+
 }
