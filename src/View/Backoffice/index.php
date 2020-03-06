@@ -17,6 +17,5 @@
                 <button class="btn btn-dark" type="submit">Se connecter</button>
             </div>
         </form>
-        <?= password_hash("Jforte2020", PASSWORD_DEFAULT); ?>
 
 </div>

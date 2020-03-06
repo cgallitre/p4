@@ -27,8 +27,11 @@ class ControllerPost extends Controller
 
     // one post
     public function view(){
-        $postId = $this->request->getParameter("id");
+        if (isset($_POST['commentId'])){
+            $this->comment->signalComment($_POST['commentId']);
+        }
 
+        $postId = $this->request->getParameter("id");
         $post=$this->post->getPost($postId);
         $titlesPosts = $this->post->getTitlesPosts();
         $comments=$this->comment->getComments($postId);
@@ -131,16 +134,6 @@ class ControllerPost extends Controller
         // save of the comment
         $this->comment->addComment($author, $content, $postId, $date, $status);
         // view
-        $this->executeAction("view");
-    }
-
-        // signal a comment
-    public function signal()
-    {
-        $commentId = $this->request->getParameter("id");
-        // delete post
-        $this->comment->signalComment($commentId);
-        // actualisation de l'affichage
         $this->executeAction("view");
     }
 }

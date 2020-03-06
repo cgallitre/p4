@@ -25,7 +25,11 @@
             <hr class="my-4">
             <p>Le <?= date('d-m-Y à H:i', strtotime($comment['date'])) ?> <?= $this->clean($comment['author']) ?> dit : </p>
             <p><?= $this->clean($comment['content']) ?></p>
-            <a href="post/signal/<?= $this->clean($comment['id']) ?>"><button class="btn btn-danger">Signaler</button></a>
+            <!-- button signal -->
+            <form action="post/view/<?= $post['id'] ?>" method="post">
+                <input type="hidden" value="<?= $comment['id'] ?>" name="commentId">
+                <button class="btn btn-danger">Signaler</button>
+            </form>
         <?php endforeach ?>
     <?php endif ?>
 
@@ -35,8 +39,7 @@
         <h4>Ajouter un commentaire</h4>
         <form action="post/comment" method="post">
             <input type="text" id="author" name="author" placeholder="Votre pseudo" class="form-control" required><br>
-            <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire"
-                class="form-control" required></textarea><br>
+            <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire" class="form-control" required></textarea><br>
             <input type="hidden" name="id" value="<?= $this->clean($post['id']) ?>">
             <input class="btn btn-dark" type="submit" value="Commenter">
         </form>
