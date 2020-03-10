@@ -8,6 +8,7 @@
             <button class="btn btn-primary">Ajouter</button>
         </a>
     </h2>
+    <?= $_SESSION['message']; ?>
     <table class="table table-striped">
         <tr>
             <th scope="col">#</th>

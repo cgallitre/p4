@@ -29,6 +29,7 @@ class ControllerPost extends Controller
     public function view(){
         if (isset($_POST['commentId'])){
             $this->comment->signalComment($_POST['commentId']);
+            $_SESSION['message'] = '<div class="alert alert-danger">Commentaire signalé.</div>';
         }
 
         $postId = $this->request->getParameter("id");
@@ -96,6 +97,7 @@ class ControllerPost extends Controller
 
             $this->post->updatePost($title, $content, $published, $postId);
             // view list of posts
+            $_SESSION['message'] = '<div class="alert alert-success">Chapitre modifié.</div>';
             $this->executeAction("manage");
 
         } else {
@@ -120,6 +122,7 @@ class ControllerPost extends Controller
         // delete post
         $this->post->deletePost($postId);
         // actualisation de l'affichage
+        $_SESSION['message'] = '<div class="alert alert-danger">Chapitre définitivement supprimé.</div>';
         $this->executeAction("manage");
     }
 
@@ -130,10 +133,11 @@ class ControllerPost extends Controller
         $content = $this->request->getParameter("content");
         $date = new \DateTime('Europe/Paris');
         $date = $date->format('Y-m-d H:i:s');
-        $status = 1; // 1 = default value = published
+        $status = 1; // 1 = default value (published)
         // save of the comment
         $this->comment->addComment($author, $content, $postId, $date, $status);
         // view
+        $_SESSION['message'] = '<div class="alert alert-success">Commentaire ajouté.</div>';
         $this->executeAction("view");
     }
 }

@@ -29,6 +29,7 @@ class ControllerBackoffice extends Controller
                 $_SESSION['auth'] = true;
                 $this->executeAction("index");
             } else {
+                $_SESSION['message'] = '<div class="alert alert-danger">Mauvais login ou mot de passe.</div>';
                 $this->generateView([]);
             }
         } else {
@@ -39,13 +40,21 @@ class ControllerBackoffice extends Controller
     public function dashboard()
     {
         $this->checkConnection();
-        $this->generateView([]);
+        $this->login->statistics();
+        $stat = $this->login->statistics();
+        
+        $this->generateView([
+            'postsPublished' => $stat[0],
+            'postsInProgress' => $stat[1],
+            'signaledComments' => $stat[2]
+            ]);
     }
 
     public function logout()
     {
         $_SESSION=[];
         \session_destroy();
+        $_SESSION['message'] = '<div class="alert alert-danger">Vous êtes déconnecté.</div>';
         $this->executeAction("index");
     }
 

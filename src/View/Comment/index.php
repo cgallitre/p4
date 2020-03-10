@@ -3,6 +3,7 @@
 <div class="col-md-12" id="main">
     <!-- main content -->
     <h2>Liste des commentaires</h2>
+    <?= $_SESSION['message'] ?>
     <table class="table table-striped">
         <tr>
             <th scope="col" class="text-center">Date</th>

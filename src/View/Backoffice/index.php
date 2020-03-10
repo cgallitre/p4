@@ -4,6 +4,7 @@
     <!-- main content -->
 
         <h2>Administration</h2>
+        <?= $_SESSION['message']; ?>
         <form action="backoffice/index" class="jumbotron" method="post">
             <div class="form-group col-6">
                 <label for="username">Identifiant</label>
