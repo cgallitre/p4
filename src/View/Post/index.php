@@ -15,9 +15,7 @@
                 <a href="/post/view/<?= $this->clean($post['id']) ?>">
                     <h4><?= $this->clean($post['title']) ?></h4>
                 </a>
-                <p>
-                    <?= substr($this->clean($post['content']), 0, 200) . '...' ?>
-                </p>
+                <div><?= $this->clean($post['excerpt']) . '...' ?></div>
                 <a href="/post/view/<?= $this->clean($post['id']) ?>">
                     <button class="btn btn-light">Lire la suite...</button>
                 </a>

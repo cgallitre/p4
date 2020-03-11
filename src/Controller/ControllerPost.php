@@ -54,6 +54,7 @@ class ControllerPost extends Controller
         {
             $title = $this->request->getParameter("title");
             $content = $this->request->getParameter("content");
+            $excerpt = $this->request->getParameter("excerpt");
             $date = new \DateTime('Europe/Paris');
             $date = $date->format('Y-m-d H:i:s');
 
@@ -63,10 +64,10 @@ class ControllerPost extends Controller
             } else {
                 $published = 0; // 0 = not published
             }
-            $this->post->addPost($title, $content, $published, $date);
+            $this->post->addPost($title, $content, $published, $excerpt, $date);
             $_SESSION['classMessage'] = 'success';
             $_SESSION['message'] = 'Chapitre ajouté.';    
-            header('Location: /backoffice/dashboard');
+            header('Location: /post/manage');
             exit();
         }
         $this->generateView([]);
@@ -91,6 +92,7 @@ class ControllerPost extends Controller
             $postId = $this->request->getParameter("id");
             $title = $this->request->getParameter("title");
             $content = $this->request->getParameter("content");
+            $excerpt = $this->request->getParameter("excerpt");
 
             if ($this->request->existParameter("published"))
             {
@@ -99,7 +101,7 @@ class ControllerPost extends Controller
                 $published = 0; // 0 = not published
             }
 
-            $this->post->updatePost($title, $content, $published, $postId);
+            $this->post->updatePost($title, $content, $excerpt, $published, $postId);
             // view list of posts
             $_SESSION['classMessage'] = 'success';
             $_SESSION['message'] = 'Chapitre modifié.';

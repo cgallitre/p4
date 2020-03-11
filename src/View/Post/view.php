@@ -7,12 +7,11 @@
             <time>Publié le <?= date('d/m/Y', strtotime($post['date'])) ?></time>
         </header>
         <br>
-        <p><?= $this->clean($post['content']) ?></p>
+        <p><?= $post['content'] ?></p>
     </article>
 
 
     <?php // Calcul du nombre de commentaires
-
         $comments = $comments->fetchAll();
         $numComments = count($comments);
     ?>
@@ -37,7 +36,7 @@
     
     <div class="form-group" id="ajoutCommentaire">
         <h4>Ajouter un commentaire</h4>
-                <?php if(isset($_SESSION['message'])) : ?>
+        <?php if(isset($_SESSION['message'])) : ?>
             <div class="alert alert-<?= $_SESSION['classMessage'] ?>"><?= $_SESSION['message'] ?></div>
             <?php unset($_SESSION['message']) ?>
         <?php endif ?>
