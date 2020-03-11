@@ -29,7 +29,8 @@ class ControllerComment extends Controller
         // delete post
         $this->comment->deleteComment($commentId);
         // actualisation de l'affichage
-        $_SESSION['message'] = '<div class="alert alert-danger">Commentaire définitivement supprimé.</div>';
+        $_SESSION['classMessage'] = 'danger';
+        $_SESSION['message'] = 'Commentaire définitivement supprimé.';
         $this->executeAction("index");
     }
 
@@ -40,7 +41,8 @@ class ControllerComment extends Controller
         // delete post
         $this->comment->updateComment($commentId);
         // actualisation de l'affichage
-        $_SESSION['message'] = '<div class="alert alert-success">Commentaire publié.</div>';
+        $_SESSION['classMessage'] = 'success';
+        $_SESSION['message'] = 'Commentaire  publié.';
         $this->executeAction("index");
     }
 

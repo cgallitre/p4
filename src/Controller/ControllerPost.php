@@ -29,7 +29,8 @@ class ControllerPost extends Controller
     public function view(){
         if (isset($_POST['commentId'])){
             $this->comment->signalComment($_POST['commentId']);
-            $_SESSION['message'] = '<div class="alert alert-danger">Commentaire signalé.</div>';
+        $_SESSION['classMessage'] = 'danger';
+        $_SESSION['message'] = 'Commentaire  signalé.';
         }
 
         $postId = $this->request->getParameter("id");
@@ -63,7 +64,10 @@ class ControllerPost extends Controller
                 $published = 0; // 0 = not published
             }
             $this->post->addPost($title, $content, $published, $date);
+            $_SESSION['classMessage'] = 'success';
+            $_SESSION['message'] = 'Chapitre ajouté.';    
             header('Location: /backoffice/dashboard');
+            exit();
         }
         $this->generateView([]);
         
@@ -97,7 +101,8 @@ class ControllerPost extends Controller
 
             $this->post->updatePost($title, $content, $published, $postId);
             // view list of posts
-            $_SESSION['message'] = '<div class="alert alert-success">Chapitre modifié.</div>';
+            $_SESSION['classMessage'] = 'success';
+            $_SESSION['message'] = 'Chapitre modifié.';
             $this->executeAction("manage");
 
         } else {
@@ -122,7 +127,8 @@ class ControllerPost extends Controller
         // delete post
         $this->post->deletePost($postId);
         // actualisation de l'affichage
-        $_SESSION['message'] = '<div class="alert alert-danger">Chapitre définitivement supprimé.</div>';
+        $_SESSION['classMessage'] = 'danger';
+        $_SESSION['message'] = 'Chapitre définitivement supprimé.';
         $this->executeAction("manage");
     }
 
@@ -137,7 +143,8 @@ class ControllerPost extends Controller
         // save of the comment
         $this->comment->addComment($author, $content, $postId, $date, $status);
         // view
-        $_SESSION['message'] = '<div class="alert alert-success">Commentaire ajouté.</div>';
+        $_SESSION['classMessage'] = 'success';
+        $_SESSION['message'] = 'Commentaire ajouté.';       
         $this->executeAction("view");
     }
 }

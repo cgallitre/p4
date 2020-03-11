@@ -37,7 +37,10 @@
     
     <div class="form-group" id="ajoutCommentaire">
         <h4>Ajouter un commentaire</h4>
-        <?= $_SESSION['message']; ?>
+                <?php if(isset($_SESSION['message'])) : ?>
+            <div class="alert alert-<?= $_SESSION['classMessage'] ?>"><?= $_SESSION['message'] ?></div>
+            <?php unset($_SESSION['message']) ?>
+        <?php endif ?>
         <form action="post/comment" method="post">
             <input type="text" id="author" name="author" placeholder="Votre pseudo" class="form-control" required><br>
             <textarea name="content" id="content" cols="30" rows="5" placeholder="Votre commentaire" class="form-control" required></textarea><br>

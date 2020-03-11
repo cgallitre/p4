@@ -3,10 +3,14 @@
 <div class="col-md-8" id="main">
     <!-- main content -->
         <h2>Tableau de bord</h2>
-        <?= $_SESSION['message']; ?>
+        <?php if(isset($_SESSION['message'])) : ?>
+            <div class="alert alert-<?= $_SESSION['classMessage'] ?>"><?= $_SESSION['message'] ?></div>
+            <?php unset($_SESSION['message']) ?>
+        <?php endif ?>
         <div class="jumbotron">
             <p><a href="post/manage">Gérer les chapitres</a></p>
             <p><a href="comment/index">Modérer les commentaires</a></p>
+            <p><a href="backoffice/inscription">Ajouter un compte</a></p>
             <a href="backoffice/logout"><button class="btn btn-light">Se déconnecter</button></a>
         </div>
 </div>

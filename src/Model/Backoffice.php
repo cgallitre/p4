@@ -3,14 +3,16 @@ namespace App\Model;
 
 use App\Framework\Model;
 
-class login extends model
+class backoffice extends model
 {
     
 
-    public function getLogin()
+    public function getLogin($username)
     {
-        $sql = 'SELECT username, password FROM user';
-        $login = $this->executeRequest($sql);
+        $sql = 'SELECT username, password FROM user WHERE user.username = :username';
+        $login = $this->executeRequest($sql, [
+            'username' => $username
+        ]);
         return $login->fetch();
     }
 
@@ -26,6 +28,14 @@ class login extends model
         $signaledComments = $this->executeRequest($sql)->fetch();
 
         return [$postsPublished, $postsInProgress, $signaledComments];
+    }
 
+    public function addAccount($username, $password)
+    {
+        $sql = 'INSERT INTO user (username, password) VALUES (:username, :password)';
+        $this->executeRequest($sql, [
+            'username' => $username, 
+            'password' => $password
+        ]);
     }
 }
