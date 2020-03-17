@@ -10,7 +10,7 @@
         <div class="jumbotron">
             <p><a href="post/manage">Gérer les chapitres</a></p>
             <p><a href="comment/index">Modérer les commentaires</a></p>
-            <p><a href="backoffice/inscription">Ajouter un compte</a></p>
+            <p><a href="backoffice/accounts">Gérer les comptes</a></p>
             <a href="backoffice/logout"><button class="btn btn-light">Se déconnecter</button></a>
         </div>
 </div>

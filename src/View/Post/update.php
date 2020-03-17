@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="content">Votre texte</label>
-                <textarea name="content" id="content" rows="20"><?= $post['content'] ?></textarea>
+                <textarea name="content" id="content" rows="30"><?= $post['content'] ?></textarea>
             </div>
             <div class="form-group">
                 <label for="excerpt">Résumé (visible sur la page d'accueil)</label>

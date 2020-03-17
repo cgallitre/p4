@@ -5,6 +5,11 @@ use App\Framework\Model;
 
 class backoffice extends model
 {
+    public function getAccounts()
+    {
+        $sql = 'SELECT * FROM user';
+        return $this->executeRequest($sql);
+    }
     
 
     public function getLogin($username)
@@ -37,5 +42,11 @@ class backoffice extends model
             'username' => $username, 
             'password' => $password
         ]);
+    }
+
+    public function deleteAccount($accountId)
+    {
+        $sql= 'DELETE FROM user WHERE id = :id';
+        $postDelete = $this->executeRequest($sql, ['id' => $accountId]);
     }
 }

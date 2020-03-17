@@ -53,8 +53,19 @@ class ControllerPost extends Controller
         if ($this->request->existParameter("title"))
         {
             $title = $this->request->getParameter("title");
-            $content = $this->request->getParameter("content");
-            $excerpt = $this->request->getParameter("excerpt");
+
+            if($this->request->existParameter("content")){
+                $content = $this->request->getParameter("content");
+            } else {
+                $content = "Chapitre en cours de rédaction.";
+            }
+
+            if($this->request->existParameter('excerpt')){
+                $excerpt = $this->request->getParameter("excerpt");
+            } else {
+                $excerpt = "En cours de rédaction.";
+            }
+            
             $date = new \DateTime('Europe/Paris');
             $date = $date->format('Y-m-d H:i:s');
 
@@ -90,9 +101,19 @@ class ControllerPost extends Controller
         {
             // Save modifications
             $postId = $this->request->getParameter("id");
-            $title = $this->request->getParameter("title");
-            $content = $this->request->getParameter("content");
-            $excerpt = $this->request->getParameter("excerpt");
+             $title = $this->request->getParameter("title");
+
+            if($this->request->existParameter("content")){
+                $content = $this->request->getParameter("content");
+            } else {
+                $content = "Chapitre en cours de rédaction.";
+            }
+
+            if($this->request->existParameter('excerpt')){
+                $excerpt = $this->request->getParameter("excerpt");
+            } else {
+                $excerpt = "En cours de rédaction.";
+            }
 
             if ($this->request->existParameter("published"))
             {

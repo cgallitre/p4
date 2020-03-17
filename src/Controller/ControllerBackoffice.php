@@ -83,7 +83,7 @@ class ControllerBackoffice extends Controller
                 $this->backoffice->addAccount($username, password_hash($password, PASSWORD_BCRYPT));
                 $_SESSION['classMessage'] = 'success';
                 $_SESSION['message']= 'Le compte a été créé.';
-                header('Location: /backoffice/dashboard');
+                header('Location: /backoffice/accounts');
                 exit();
             } else {
                 // Error
@@ -96,5 +96,26 @@ class ControllerBackoffice extends Controller
         // show new inscription form
         $this->generateView([]);
         }
+    }
+
+    public function accounts()
+    {
+        $this->checkConnection();
+        $accounts = $this->backoffice->getAccounts();
+        $this->generateView([
+            'accounts' => $accounts,
+            ]);
+    }
+
+    public function deleteAccount()
+    {
+        $this->checkConnection();
+        $accountId = $this->request->getParameter("id");
+        // delete post
+        $this->backoffice->deleteAccount($accountId);
+        // actualisation de l'affichage
+        $_SESSION['classMessage'] = 'danger';
+        $_SESSION['message'] = 'Compte définitivement supprimé.';
+        $this->executeAction("accounts");
     }
 }

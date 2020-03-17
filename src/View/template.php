@@ -26,6 +26,7 @@
         <footer class="row">
             <div class="col" id="foot">
                 <h5 class="text-center">Copyright Jean Forteroche</h5>
+                <p class="small text-center">Librement inspiré de l'auteur Jack London et de son oeuvre "Croc Blanc"</p>
                 <p class="text-center">
                     <a href="backoffice/index"><button type="button" class="btn btn-light">Administration</button>
                     </a>
