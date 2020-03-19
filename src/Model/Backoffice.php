@@ -14,7 +14,7 @@ class backoffice extends model
 
     public function getLogin($username)
     {
-        $sql = 'SELECT username, password FROM user WHERE user.username = :username';
+        $sql = 'SELECT id, username, password FROM user WHERE user.username = :username';
         $login = $this->executeRequest($sql, [
             'username' => $username
         ]);

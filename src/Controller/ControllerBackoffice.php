@@ -31,6 +31,7 @@ class ControllerBackoffice extends Controller
             if ($login['username']==$username && password_verify($pass, $login['password'])){
                 // authentification ok
                 $_SESSION['auth'] = true;
+                $_SESSION['adminId'] = $login['id'];
                 $this->executeAction("index");
             } else {
                 $_SESSION['classMessage'] = 'danger';
@@ -111,11 +112,18 @@ class ControllerBackoffice extends Controller
     {
         $this->checkConnection();
         $accountId = $this->request->getParameter("id");
-        // delete post
-        $this->backoffice->deleteAccount($accountId);
-        // actualisation de l'affichage
-        $_SESSION['classMessage'] = 'danger';
-        $_SESSION['message'] = 'Compte définitivement supprimé.';
+        $connectedId = $_SESSION['adminId'];
+        if ($accountId !== $connectedId){
+            // delete post
+            $this->backoffice->deleteAccount($accountId);
+            // message
+            $_SESSION['classMessage'] = 'danger';
+            $_SESSION['message'] = 'Compte définitivement supprimé.';
+        } else {
+            $_SESSION['classMessage'] = 'danger';
+            $_SESSION['message'] = 'Impossible de supprimer le compte en cours.';
+        }
+        // render
         $this->executeAction("accounts");
     }
 }

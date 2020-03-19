@@ -1,12 +1,5 @@
 <?php $this->title = "Le blog de Jean Forteroche" ?>
 
-<!-- tinyMCE -->
-<script src="https://cdn.tiny.cloud/1/x0g6ua9j7ztptummsgzbtrr9z5a527zl90lks8noaahcvyhb/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-      tinymce.init({
-        selector: '#content'
-      });
-    </script>
 
 <div class="col-md-12" id="main">
     <!-- main content -->
@@ -32,5 +25,12 @@
             <button class="btn btn-dark" type="submit">Modifier</button>
         </form>
 
-        <form>
 </div>
+
+<!-- tinyMCE -->
+<script src="https://cdn.tiny.cloud/1/x0g6ua9j7ztptummsgzbtrr9z5a527zl90lks8noaahcvyhb/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#content'
+      });
+    </script>
