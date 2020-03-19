@@ -50,9 +50,9 @@ class ControllerBackoffice extends Controller
         $stat = $this->backoffice->statistics();
         
         $this->generateView([
-            'postsPublished' => $stat[0],
-            'postsInProgress' => $stat[1],
-            'signaledComments' => $stat[2]
+            'postsPublished' => $stat['postsPublished'],
+            'postsInProgress' => $stat['postsInProgress'],
+            'signaledComments' => $stat['signaledComments']
             ]);
     }
 

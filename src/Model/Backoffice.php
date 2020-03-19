@@ -32,7 +32,10 @@ class backoffice extends model
         $sql = 'SELECT COUNT(id) from comments WHERE status = 0';
         $signaledComments = $this->executeRequest($sql)->fetch();
 
-        return [$postsPublished, $postsInProgress, $signaledComments];
+        return [
+            'postsPublished' =>$postsPublished, 
+            'postsInProgress' =>$postsInProgress, 
+            'signaledComments' => $signaledComments];
     }
 
     public function addAccount($username, $password)
